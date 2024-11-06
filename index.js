@@ -3,7 +3,9 @@ const app = express()
 const cors = require('cors')
 const mainRouter = require('./routes/index')
 
-app.use(cors())
+app.use(cors({
+    origin: 'https://mern-front-1-5x8f.onrender.com'
+}))
 app.use(express.json())
 
 app.use('/api/v1',mainRouter)
