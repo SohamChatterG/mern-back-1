@@ -1,10 +1,19 @@
 const mongoose = require('mongoose')
-//
-mongoose.connect('mongodb://localhost:27017/paytm', {
-    serverSelectionTimeoutMS: 5000,
-})
-.then(() => console.log('database connected'))
-.catch((e) => console.log('error in connecting to the database', e));
+
+
+const mongoURI = 'mongodb+srv://heyiamsoham:heyiamsoham@paytmdb.dllffkh.mongodb.net/';
+
+mongoose.connect(mongoURI, {
+    
+    tls: true, // Enables TLS/SSL for the connection
+  })
+  .then(() => {
+    console.log('Successfully connected to MongoDB Atlas!');
+  })
+  .catch((err) => {
+    console.error('Error connecting to MongoDB Atlas:', err);
+  });
+  
 
 const userSchema = new mongoose.Schema({
     username : {
